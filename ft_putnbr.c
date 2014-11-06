@@ -4,7 +4,7 @@ void ft_putnbr(int n)
 
 	rev = 0;
 	if (n == 0)
-		ft_putchar('0');	
+		ft_putchar('0');
 	else if (n < 0)
 	{
 		ft_putchar('-');

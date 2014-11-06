@@ -2,13 +2,10 @@
 
 void ft_bzero(void *s, size_t n)
 {
-	int i;
-
-	i = 0;
-	while (i != n)
+	while (n != 0)
 	{
-		*s = '/0';
+		*s = '\0';
 		&s++;
-		i++;
+		n--;
 	}
 }
