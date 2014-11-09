@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:25:56 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/08 21:25:58 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/09 02:08:50 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char *ft_strncat(char *dest, const char *src, size_t n)
 		i++;
 	}
 	dest[dest_len + i] = '\0';
-return (dest);
+	return (dest);
 }

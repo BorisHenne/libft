@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:24:30 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/08 21:24:39 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/09 00:44:20 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_isalpha(int c)
 {
-	if(ft_islower(c) || ft_isupper(c))
-		return(1);
-	return(0);
+	if (ft_islower(c) || ft_isupper(c))
+		return (1);
+	return (0);
 }

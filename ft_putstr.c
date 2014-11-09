@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:25:20 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/08 21:25:21 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/09 01:15:56 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_putstr(char const *s)
 	int i;
 
 	i = 0;
-	while(s[i] != '\0')
+	while (s[i] != '\0')
 	{
 		ft_putchar(s[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:28:12 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/08 21:28:14 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/09 00:43:42 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
