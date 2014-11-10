@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bhenne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/08 21:27:04 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/10 04:25:20 by bhenne           ###   ########.fr       */
+/*   Created: 2014/11/10 04:51:31 by bhenne            #+#    #+#             */
+/*   Updated: 2014/11/10 06:25:22 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void *ft_memmove(void *dst, const void *src, size_t len)
 {
-	write(1, &c, 1);
+	unsigned char *buffer;
+	
+	buffer = ft_memalloc(len);
+	if (buffer == NULL)
+		return (NULL);
+	ft_memcpy(buffer, src, len);
+	ft_memcpy(dst, buffer, len);
+	free(buffer);
+	return (dst);
 }
