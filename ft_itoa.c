@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bhenne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 05:06:02 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/11 02:55:52 by bhenne           ###   ########.fr       */
+/*   Created: 2014/11/10 23:17:22 by bhenne            #+#    #+#             */
+/*   Updated: 2014/11/11 02:24:29 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memalloc(size_t size)
+char *ft_itoa(int n)
 {
-	void *var;
+	char	*str;
 
-	var = malloc(sizeof(void *) * size);
-	if (new == NULL)
-		return (NULL);
-	ft_bzero(var, size);
-	return (var);
+	if (n < 0)
+	{	
+		nbr = nbr * -1;
+		str[i] = '-';
+		i++;
+	}
+	return (str);
 }
+

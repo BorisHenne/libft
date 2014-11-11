@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 05:06:02 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/11 02:55:52 by bhenne           ###   ########.fr       */
+/*   Created: 2014/11/11 02:45:07 by bhenne            #+#    #+#             */
+/*   Updated: 2014/11/11 02:51:30 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memalloc(size_t size)
+int ft_tolower(int c)
 {
-	void *var;
-
-	var = malloc(sizeof(void *) * size);
-	if (new == NULL)
-		return (NULL);
-	ft_bzero(var, size);
-	return (var);
+	if (ft_isupper((unsigned char)c))
+		return (c -= 32);
+	else
+		return (c);
 }
