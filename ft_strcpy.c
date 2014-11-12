@@ -13,6 +13,5 @@
 #include "libft.h"
 
 char *ft_strcpy(char *dest, const char *src)
-{
 	return (dest = ft_memcpy(dest, src, ft_strlen(src)));
-}
+

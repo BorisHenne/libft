@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 05:06:02 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/11 02:55:52 by bhenne           ###   ########.fr       */
+/*   Created: 2014/11/10 06:28:08 by bhenne            #+#    #+#             */
+/*   Updated: 2014/11/11 03:08:32 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memalloc(size_t size)
+int ft_strcmp(const char *s1, const char *s2)
 {
-	void *var;
-
-	var = malloc(sizeof(void *) * size);
-	if (var == NULL)
-		return (NULL);
-	ft_bzero(var, size);
-	return (var);
+	while (s1 != '\0' || s2 != '\0')
+	{
+		if (s1 != s2)
+			return (s1 - s2);
+		s1++;
+		s2++;
+	}
+	return (0);
 }

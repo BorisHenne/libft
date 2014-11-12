@@ -15,9 +15,9 @@
 size_t strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dest_len;
-	int		i;
+	size_t	i;
 
-	dest_len = ft_strlen(dest);
+	dest_len = ft_strlen(dst);
 	i = 0;
 	while (i < size && src[i] != '\0')
 	{

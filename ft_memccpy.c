@@ -14,5 +14,11 @@
 
 void *ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	
+	unsigned char *str;
+
+	str = (ft_strchr(src, c));
+	if (n == 0 || str == 0)
+		return (NULL);
+	else
+		return (ft_memcpy(dst, src, n));
 }
