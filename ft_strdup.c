@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 06:28:08 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/11 03:08:32 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/13 18:05:47 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char* s)
+char *ft_strdup(const char *s)
 {
-	size_t len;
-	size_t i;
-	char *buffer;
+	size_t	len;
+	size_t	i;
+	char	*buffer;
 
+	i = 0;
 	len = ft_strlen(s);
-	buffer = ft_memalloc(i+1);
+	buffer = ft_memalloc(i + 1);
 	if (s == NULL)
 		return (NULL);
 	i = 0;

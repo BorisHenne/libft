@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:27:18 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/09 01:58:51 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/13 15:38:25 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 char *ft_strncat(char *dest, const char *src, size_t n)
 {
 	char *result;
+
 	while (n != 0)
 	{
-		result = ft_strcat(dest, src)
+		result = ft_strcat(dest, src);
 		n--;
 	}
 	return (result);

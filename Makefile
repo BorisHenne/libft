@@ -15,9 +15,9 @@ NAME = libft
 FILES = ft_putchar ft_putstr ft_putnbr ft_strlen ft_memcpy \
 		ft_memchr ft_memset ft_memmove ft_isupper ft_islower ft_isalpha \
 		ft_isdigit ft_isascii ft_isalnum ft_isprint ft_toupper ft_tolower \
-		ft_strcpy \
+		ft_strcpy ft_memccpy ft_strchr ft_strcmp ft_strdup \
 		ft_strncpy ft_strcat ft_strncat ft_strlcat ft_bzero \
-		ft_memalloc \
+		ft_memalloc ft_strrchr ft_strstr\
 		ft_isspace main\
 
 SRC = $(addsuffix .c, $(FILES))

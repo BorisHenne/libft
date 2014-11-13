@@ -1,377 +1,463 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/08 21:51:34 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/08 21:52:25 by bhenne           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
+#include <string.h>
 
-void	test_memalloc()
+int test_isalpha(void)
 {
-	int		i;
-	unsigned char	*tmp;
-
-	dprintf(1, "Memalloc 		");
-	tmp = (unsigned char*)ft_memalloc(15);
-	i = -1;
-	while (++i < 15)
+	int i = 0;
+	while (i < 200)
 	{
-		if (tmp[i] != 0) {
-			dprintf(1, "\x1b[31mFail\x1b[0m La memoire n'a pas ete initialisee a 0.i\n");
-			return;
-		}
+		if (ft_isalpha(i) != isalpha(i))
+			return (0);
+		i++;
 	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
+	return (1);
 }
 
-void	test_memdel()
+int test_isdigit(void)
 {
-	void	*tmp = malloc(50);
-
-	dprintf(1, "Memdel			");
-	ft_memdel(&tmp);
-	if (tmp != NULL) {
-		dprintf(1, "\x1b[31mFail\x1b[0m Le pointeur n'a pas ete mis a NULL.");
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-void	test_strnew()
-{
-	int		i;
-	char	*tmp;
-
-	dprintf(1, "Strnew	 		");
-	tmp = ft_strnew(15);
-	i = -1;
-	while (++i < 15)
+	int i = 0;
+	while (i < 200)
 	{
-		if (tmp[i] != '\0') {
-			dprintf(1, "\x1b[31mFail\x1b[0m La chaine n'a pas ete initialisee a \\0.\n");
-			return;
-		}
+		if (ft_isdigit(i) != isdigit(i))
+			return (0);
+		i++;
 	}
-	if (tmp[i] != '\0') {
-		dprintf(1, "\x1b[31mFail\x1b[0m Le \\0 de fin n'a pas ete ajoute.\n");
-		return;
+	return (1);
+}
+
+int test_isalnum(void)
+{
+	int i=0;
+	while (i < 200)
+	{
+		if (ft_isalnum(i) != isalnum(i))
+			return (0);
+		i++;
 	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
+	return (1);
 }
 
-void	test_strdel()
+int test_isascii(void)
 {
-	char	*tmp = malloc(50);
-
-	dprintf(1, "Strdel			");
-	ft_strdel(&tmp);
-	if (tmp != NULL) {
-		dprintf(1, "\x1b[31mFail\x1b[0m Le pointeur n'a pas ete mis a NULL.");
-		return;
+	int i=0;
+	while (i < 200)
+	{
+		if (ft_isascii(i) != isascii(i))
+			return (0);
+		i++;
 	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
+	return (1);
 }
 
-void	test_strclr()
+int test_isprint(void)
 {
-	char	*tmp = (char*)malloc(13);
-	int		i = -1;
-
-	dprintf(1, "Strclr			");
-	strcpy(tmp, "Motherfucker");
-	ft_strclr(tmp);
-	while (++i < 13) {
-		if (tmp[i] != '\0') {
-			dprintf(1, "\x1b[31mFail\x1b[0m Les caracteres de la chaine n'ont pas ete assignes a 0.\n");
-			return;
-		}
+	int i=0;
+	while (i < 200)
+	{
+		if (ft_isprint(i) != isprint(i))
+			return (0);
+		i++;
 	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
+	return (1);
 }
 
-void	char_to_upper(char *c)
+/*int test_strncmp(void)
 {
-	*c = toupper(*c);
-}
+	char str[4][8] = {"", " ", "Ah", "Coucou"};
 
-void	test_striter()
-{
-	char	tmp[] = "MotherFucker";
-
-	dprintf(1, "Striter			");
-	ft_striter(tmp, &char_to_upper);
-	if (strcmp(tmp, "MOTHERFUCKER") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : MotherFucker\n		f : char_to_toupper(char *c)			*c = toupper(*c);\n\n		Valeur attendue : MOTHERFUCKER\n		Valeur obtenue : %s\n", tmp);
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-void	char_to_index(unsigned int i, char *c)
-{
-	*c = i % 10 + 48;
-}
-
-void	test_striteri()
-{
-	char	tmp[] = "MotherFucker";
-
-	dprintf(1, "Striteri		");
-	ft_striteri(tmp, &char_to_index);
-	if (strcmp(tmp, "012345678901") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : MotherFucker\n		f : char_to_index(unsigned int index, char *c)\n			*c = i modulo 10 + 48;\n\n				Valeur attendue : 012345678901\n		Valeur obtenue : %s\n", tmp);
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-char	yolo(char c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
-}
-
-void	test_strmap()
-{
-	char	tmp[] = "MotherFucker";
-	char	*dst;
-
-	dprintf(1, "Strmap			");
-	dst = ft_strmap(tmp, &yolo);
-	if (strcmp(tmp, "MotherFucker") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m La chaine originale a ete modifiee ; une nouvelle chaine fresh doit etre cree.\n");
-		return;
-	}
-	if (strcmp(dst, "MOTHERFUCKER") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : MotherFucker\n		f : man toupper\n\n		Valeur attendue : MOTHERFUCKER\n		Valeur obtenue : %s\n", dst);
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-char	char_to_i(unsigned int i, char c)
-{
-	(void) c;
-	return((int)i % 10 + 48);
-}
-
-
-void	test_strmapi()
-{
-	char	tmp[] = "MotherFucker";
-	char	*dst;
-
-	dprintf(1, "Strmapi			");
-	dst = ft_strmapi(tmp, &char_to_i);
-	if (strcmp(tmp, "MotherFucker") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m La chaine originale a ete modifiee ; une nouvelle chaine fresh doit etre cree.\n");
-		return;
-	}
-	if (strcmp(dst, "012345678901") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : MotherFucker\n		f : char_to_index(unsigned int index, char c)\n				return (i modulo 10 + 48);\n\n		Valeur attendue : 012345678901\n		Valeur obtenue : %s\n", dst);
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-void	test_strequ()
-{
-	char	str[4][15] = {"", " ", "Hello", "Motherfucker"};
-	int	i = -1;
-	int	j = -1;
-
-	dprintf(1, "Strequ			");
-	while (++i < 4) {
-		j = -1;
-		while (++j < 4) {
-			if (strcmp(str[i], str[j]) == 0 && ft_strequ(str[i], str[j]) != 1) {
-				dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s1 : '%s'\n		s2 : '%s'\n\n		Valeur attendue : 1\n		Valeur obtenue : %d\n", str[i], str[j],ft_strequ(str[i], str[j]));
-				return;
-			}
-			if (strcmp(str[i], str[j]) != 0 && ft_strequ(str[i], str[j]) != 0) {
-				dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s1 : '%s'\n		s2 : '%s'\n\n		Valeur attendue : 0\n		Valeur obtenue : %d\n", str[i], str[j],ft_strequ(str[i], str[j]));
-				return;
-			}
-		}
-	}
-
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-void	test_strnequ()
-{
-	char	str[4][15] = {"", " ", "Hello", "Motherfucker"};
-	int	i = -1;
-	int	j;
+	int i=0;
+	int j;
 	int k;
-
-	dprintf(1, "Strnequ			");
-	while (++i < 4) {
-		j = -1;
-		while (++j < 4) {
-			k = -1;
-			while (++k < 15) {
-				if (strncmp(str[i], str[j], k) == 0 && ft_strnequ(str[i], str[j], k) != 1) {
-					dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s1 : '%s'\n		s2 : '%s'\n		k : %d\n\n		Valeur attendue : 1\n		Valeur obtenue : %d\n", str[i], str[j],k,ft_strnequ(str[i], str[j], k));
-					return;
-				}
-				if (strncmp(str[i], str[j], k) != 0 && ft_strnequ(str[i], str[j], k) != 0) {
-					dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s1 : '%s'\n		s2 : '%s'\n		k : %d\n\n		Valeur attendue : 0\n		Valeur obtenue : %d\n", str[i], str[j],k,ft_strnequ(str[i], str[j], k));
-					return;
-				}
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			k = 0;
+			while (k < 4)
+			{
+				if(ft_strncmp(str[i],str[j],k) != strncmp(str[i],str[j],k))
+					return (0);
+				k++;
 			}
+			j++;
 		}
+		i++;
 	}
-
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
+	return (1);
 }
-
-void	test_strsub()
+*/
+int test_strcmp(void)
 {
-	char	tmp[] = "Hello MotherFucker";
-	char	*dst;
+	char str[4][8] = {"", " ", "Ah", "Coucou"};
 
-	dprintf(1, "Strsub			");
-	dst = ft_strsub(tmp, 6, 12);
-	if (strcmp(tmp, "Hello MotherFucker") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m La chaine originale a ete modifiee ; vous devez retourne une copie fresh.\n");
-		return;
-	}
-	if (strcmp(dst, "MotherFucker") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : Hello MotherFucker\n		start : 6\n		len : 12\n\n		Valeur attendue : MotherFucker\n		Valeur obtenue : %s\n", dst);
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-void	test_strjoin()
-{
-	char	*tmp = "Hello ";
-	char	*tmp2 = "MotherFucker";
-	char	*dst;
-
-	dprintf(1, "Strjoin			");
-	dst = ft_strjoin(tmp, tmp2);
-	if (strcmp(dst, "Hello MotherFucker") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s1 : 'Hello '		s2 : 'MotherFucker'\n\n		Valeur attendue : Hello MotherFucker\n		Valeur obtenue : %s\n", dst);
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-void	test_strtrim()
-{
-	char	*tmp = "\n\n\t\t   Hello\t\n MotherFucker \n\n  \t\t";
-	char	*tmp2 = "Hello MotherFucker";
-
-	dprintf(1, "Strtrim			");
-	char 	*dst = ft_strtrim(tmp);
-	char	*dst2 = ft_strtrim(tmp2);
-	if (strcmp(dst, "Hello\t\n MotherFucker") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : \n\n\t\t   Hello\t\n MotherFucker \n\n \t\t\n\n		Valeur attendue : Hello\t\n MotherFucker\n		Valeur obtenue : %s\n", dst);
-		return;	
-	}
-	if (strcmp(dst2, "Hello MotherFucker") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : Hello MotherFucker\n\n		Valeur attendue : Hello MotherFucker\n		Valeur obtenue : %s\n", dst2);
-		return;	
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-void	test_strsplit()
-{
-	char *tmp = "*salut**les*koupins";
-	char *tmp2 = "salut**les*koupins*";
-	char **tab;
-	char **tab2;
-
-	dprintf(1, "Strsplit		");
-	tab = ft_strsplit(tmp, '*');
-	tab2 = ft_strsplit(tmp2, '*');
-	if (strcmp(tab[0], "salut") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : *salut**les*koupins\n\n		Valeur attendue (1er element du tableau): salut		Valeur obtenue : %s\n", tab[0]);
-		return;
-	}
-	if (strcmp(tab[1], "les") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : *salut**les*koupins\n\n		Valeur attendue (2er element du tableau): les		Valeur obtenue : %s\n", tab[1]);
-		return;
-	}
-
-	if (strcmp(tab[2], "koupins") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : *salut**les*koupins\n\n		Valeur attendue (3er element du tableau): koupins		Valeur obtenue : %s\n", tab[2]);
-		return;
-	}
-
-	if (tab[3] != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m Le tableau n'est pas termine par 0.n");
-		return;
-	}
-
-	if (strcmp(tab2[0], "salut") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : salut**les*koupins*\n\n		Valeur attendue (1er element du tableau): salut		Valeur obtenue : %s\n", tab2[0]);
-		return;
-	}
-	if (strcmp(tab2[1], "les") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : salut**les*koupins*\n\n		Valeur attendue (2er element du tableau): les		Valeur obtenue : %s\n", tab2[1]);
-		return;
-	}
-
-	if (strcmp(tab2[2], "koupins") != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n		s : salut**les*koupins*\n\n		Valeur attendue (3er element du tableau): koupins		Valeur obtenue : %s\n", tab2[2]);
-		return;
-	}
-
-	if (tab2[3] != 0) {
-		dprintf(1, "\x1b[31mFail\x1b[0m Le tableau n'est pas termine par 0.n");
-		return;
-	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
-}
-
-void	test_itoa()
-{
-	int		ints[4] = {0, -3, 256, -87459};
-	char	str[4][10] = {"0", "-3", "256", "-87459"};
-	int i = -1;
-	char	*tmp;
-
-	dprintf(1, "Itoa			");
-	while (++i < 4) {
-		tmp = ft_itoa(ints[i]);
-		if (strcmp(tmp, str[i]) != 0) {
-			dprintf(1, "\x1b[31mFail\x1b[0m\n	Params:\n	int : %d\n\n	Valeur attendue : %s\n	Valeur obtenue : %s\n", ints[i], str[i], tmp);
-			return;
+	int i=0;
+	int j;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if(ft_strcmp(str[i],str[j]) != strcmp(str[i],str[j]))
+				return (0);
+			j++;
 		}
+		i++;
 	}
-	dprintf(1, "\x1b[32mOK\x1b[0m\n");
+	return (1);
+}
+int test_strlen(void)
+{
+	char *str="Coucou";
+	char *str2="";
+	if (ft_strlen(str) != strlen(str))
+		return (0);
+	if (ft_strlen(str2) != strlen(str2))
+		return (0);
+	return (1);
 }
 
-int		main()
+int test_strdup(void)
 {
-	test_memalloc();
-	test_memdel();
-	test_strnew();
-	test_strdel();
-	test_strclr();
-	test_striter();
-	test_striteri();
-	test_strmap();
-	test_strmapi();
-	test_strequ();
-	test_strnequ();
-	test_strsub();
-	test_strjoin();
-	test_strtrim();
-	test_strsplit();
-	test_itoa();
+	if (strcmp(ft_strdup("yo"),strdup("yo")) != 0)
+		return (0);
+	return (1);
+}
+
+int test_strcpy(void)
+{
+	char dest[10];
+	char *src="Coucou";
+	if (strcmp(ft_strcpy(dest,src), strcpy(dest,src)) != 0)
+		return (0);
+	return (1);
+}
+int test_strstr(void)
+{
+	char *s1="Coucou";
+	char *s2="Cou";
+	if(strcmp(ft_strstr(s1,s2), strstr(s1,s2)) != 0)
+		return (0);
+	return (1);
+
+}
+
+/*int test_strnstr(void)
+{
+	char *s1="Coucou";
+	char *s2="Cou";
+	int i=0;
+	while (i++ > 10)
+		if(strcmp(ft_strnstr(s1,s2,i), strnstr(s1,s2,i)) != 0)
+			return (0);
+	return (1);
+}
+*/
+int test_strncpy(void)
+{
+	char dest[10];
+	char *src="Coucou";
+	int i=0;
+	if (strcmp(		ft_strncpy(dest,src,i), strncpy(dest,src,i)) != 0)
+		return (0);
+	i = 5;
+	if (strcmp(ft_strncpy(dest,src,i), strncpy(dest,src,i)) != 0)
+		return (0);
+	i = 10;
+	if (strcmp(ft_strncpy(dest,src,i), strncpy(dest,src,i)) != 0)
+		return (0);
+	return (1);
+}
+
+int test_strcat(void)
+{
+	char *s = "c est ";
+	char *s1 = "moi";
+	char *target = malloc(strlen(s) + strlen(s1) + 1);
+	strcpy(target, s);
+
+	if (strcmp(ft_strcat(target,s1), strcat(target,s1)) != 0)
+		return (0);
+	free(target);
+	return (1);
+}
+
+int test_strchr(void)
+{
+	char *s = "Mercure Venus Terre";
+	char c = ' ';
+	char z = 'z';
+	if (strcmp(ft_strchr(s,c), strchr(s,c)) != 0)
+		return (0);
+	if ((ft_strchr(s,z) != NULL && strchr(s,c) != NULL))
+		return (0);
+	return (1);
+}
+int test_strrchr(void)
+{
+	char *s = "Mercure Venus Terre";
+	char c = ' ';
+	char z = 'z';
+	if (strcmp(ft_strrchr(s,c), strrchr(s,c)) != 0)
+		return (0);
+	if ((ft_strrchr(s,z) != NULL && strrchr(s,c) != NULL))
+		return (0);
+	return (1);
+}
+int test_strncat(void)
+{		
+	char *s = "c est ";
+	char *s1 = "moi";
+	int i = 0;
+	while (i < 15)
+	{
+		char *target = malloc(strlen(s) + strlen(s1) + 1);
+		strcpy(target, s);
+		if (strcmp(ft_strncat(target,s1,i), strncat(target,s1,i)) != 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+/*
+int test_strlcat(void)
+{
+	char *s = "c est ";
+	char *s1 = "moi";
+	char *s_ = "c est ";
+	char *s1_ = "moi";
+	int i = 0;
+	size_t k;
+	size_t j;
+	while (i < 15)
+	{
+		char *target = malloc(strlen(s) + strlen(s1) + 1);
+		char *target_ = malloc(strlen(s) + strlen(s1) + 1);
+		strcpy(target, s);
+		strcpy(target_, s_);
+		k = ft_strlcat(target,s1,i);
+		j = strlcat(target_,s1_,i);
+		if (k != j)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int test_atoi(void)
+{
+	char str[15][15] = 
+	{
+		{"000000110"},
+		{"-153"},
+		{"+132"},
+		{"++876"},
+		{"--132"},
+		{"dwbk "},
+		{"42jk "},
+		{" 21"},
+		{"      32 "},
+		{"\n 42 32 "},
+		{"		1-2"},
+		{"4+2 "},
+		{"+442"},
+		{"  -4232 "},
+		{"4,5"},
+	};
+
+	int i=	0;
+	while (i < 15)
+	{
+		if(atoi(str[i]) != ft_atoi(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+*/
+int test_memset(void)
+{
+	char *str=strdup("C M B   D T C");
+	int i = 0;
+	while (i < 2)
+	{
+		if(strcmp(ft_memset(str, '$', i), memset(str, '$', i)))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+int test_bzero(void)
+{
+	char *str=strdup("C M B   D T C");
+	char *str2=strdup("C M B   D T C");
+	int i = 0;
+	while (i < 15)
+	{
+		ft_bzero(str,i);
+		bzero(str2,i);
+		if(memcmp(str, str2, i) != 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+/*
+int		test_memcmp(void)
+{
+	char str[4][8] = {"", " ", "Ah", "Coucou"};
+
+	int i=0;
+	int j;
+	int k;
+	while (i < 4)
+	{
+		j = 0;
+		k = 0;
+		while (j < 4)
+		{
+			while (k < 8)
+			{
+				if(ft_memcmp(str[i],str[j],k) != memcmp(str[i],str[j],k))
+					return (0);
+				k++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+*/
+int test_memcpy(void)
+{
+	char*src = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char dest[80];
+	char*ptr;
+	char*ptr2;
+	char*src2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char dest2[80];
+	bzero(dest,80);
+	bzero(dest2,80);
+	ptr = (char *) memcpy(dest, src, 26);
+	ptr2 = (char *) ft_memcpy(dest2, src2, 26);
+	if (strcmp(ptr, ptr2) != 0)
+		return (0);
+	return (1);
+}
+int test_memccpy(void)
+{
+	char *srce = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char dest[80];
+	char *ptr;
+	char *srce2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char dest2[80];
+	char *ptr2;
+
+	ptr = (char *) memccpy(dest, srce, 'I', strlen(srce));
+	ptr2 = (char *) ft_memccpy(dest2, srce2, 'I', strlen(srce2));
+	if (ptr && ptr2)
+	{
+		*ptr = '\0';
+		*ptr2 = '\0';
+	}
+	if (strcmp(dest,dest2) != 0)
+		return (0);
+	return (1);
+}
+/*
+int test_memchr(void)
+{
+	char ch[30];
+	char *ptr;
+	char ch2[30];
+	char *ptr2;
+
+	strcpy(ch, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	strcpy(ch2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	ptr = (char *) memchr(ch, 'I', strlen(ch));
+	ptr2 = (char *) ft_memchr(ch2, 'I', strlen(ch2));
+	if (strcmp(ptr, ptr2) != 0)
+		return (0);
+	return 1;
+}
+*/
+int test_memmove(void)
+{
+	char *dest = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	char *str;
+	char *str2;
+	char *srce = "--------------------------";
+	str = strdup(dest);
+	str2 = strdup(dest);
+	memmove(str, srce, 25);
+	ft_memmove(str2, srce, 25);
+	if (strcmp(str,str2) != 0)
+		return (0);
+	return (1);
+}
+
+int test_tolower(void)
+{
+	int i;
+	i = 0;
+	while (i < 127)
+	{
+		if (tolower(i) != ft_tolower(i))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int test_toupper(void)
+{
+	int i;
+	i = 0;
+	while (i < 127)
+	{
+		if (toupper(i) != ft_toupper(i))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int main (void)
+{
+	printf("\nFONCTION DE LA PREMIERE PAGE\n\n");
+
+	printf("test ft_memset\t= %d\n", test_memset());
+	printf("test ft_bzero\t= %d\n", test_bzero());
+	printf("test ft_memcpy\t= %d\n", test_memcpy());
+	printf("test ft_memccpy\t= %d\n", test_memccpy());
+	printf("test ft_memmove\t= %d\n", test_memmove());
+//	printf("test ft_memchr\t= %d\n", test_memchr());
+//	printf("test ft_memcmp\t= %d\n", test_memcmp());
+	printf("---\n");
+	printf("test ft_strlen\t= %d\n", test_strlen());
+	printf("test ft_strdup\t= %d\n", test_strdup());
+	printf("test ft_strcpy\t= %d\n", test_strcpy());
+	printf("test ft_strncpy\t= %d\n", test_strncpy());
+	printf("test ft_strcat\t= %d\n", test_strcat());
+	printf("test ft_strncat\t= %d\n", test_strncat());
+//	printf("test ft_strlcat\t= %d\n", test_strlcat());
+	printf("test ft_strchr\t= %d\n", test_strchr());
+	printf("test ft_strrchr\t= %d\n", test_strrchr());
+	printf("test ft_strstr\t= %d\n", test_strstr());
+//	printf("test ft_strnstr\t= %d\n", test_strnstr());
+	printf("test ft_strcmp\t= %d\n", test_strcmp());
+//	printf("test ft_strncmp\t= %d\n", test_strncmp());
+	printf(" ---\n");
+//	printf("test ft_atoi\t= %d\n", test_atoi());
+	printf("test ft_isalpha\t= %d\n", test_isalpha());
+	printf("test ft_isdigit\t= %d\n", test_isdigit());
+	printf("test ft_isalnum\t= %d\n", test_isalnum());
+	printf("test ft_isascii\t= %d\n", test_isascii());
+	printf("test ft_isprint\t= %d\n", test_isprint());
+	printf("test ft_toupper\t= %d\n", test_toupper());
+	printf("test ft_tolower\t= %d\n", test_tolower());
 	return (0);
 }
