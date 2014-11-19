@@ -14,11 +14,21 @@
 
 void *ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char *str;
+	char	*src_cast;
+	char	*dst_cast;
+	size_t	i;
 
-	str = (ft_strchr(src, c));
-	if (n == 0 || str == 0)
-		return (NULL);
-	else
-		return (ft_memcpy(dst, src, n));
+	i = 0;
+	src_cast = (char *)src;
+	dst_cast = (char *)dst;
+	if (n == 0 || dst == src)
+		return (dst);
+	while (i < n)
+	{
+		dst_cast[i] = src_cast[i];
+		if (dst_cast[i] == c)
+			return (dst_cast + i + 1);
+		i++;
+	}
+	return (NULL);
 }

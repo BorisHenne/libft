@@ -14,12 +14,18 @@
 
 char *ft_strncat(char *dest, const char *src, size_t n)
 {
-	char *result;
+	char *buffer;
 
-	while (n != 0)
+	buffer = dest;
+	while (*buffer != '\0')
+		buffer++;
+	while (*src != '\0' && n > 0)
 	{
-		result = ft_strcat(dest, src);
+		*buffer = *src;
+		buffer++;
+		src++;
 		n--;
 	}
-	return (result);
+	*buffer = '\0';
+	return (dest);
 }

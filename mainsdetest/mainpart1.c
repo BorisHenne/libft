@@ -143,7 +143,7 @@ int test_strstr(void)
 	return (1);
 
 }
-/*
+
 int test_strnstr(void)
 {
 	char *s1="Coucou";
@@ -154,7 +154,7 @@ int test_strnstr(void)
 			return (0);
 	return (1);
 }
-*/
+
 int test_strncpy(void)
 {
 	char dest[10];
@@ -223,7 +223,7 @@ int test_strncat(void)
 	}
 	return (1);
 }
-/*
+
 int test_strlcat(void)
 {
 	char *s = "c est ";
@@ -240,14 +240,14 @@ int test_strlcat(void)
 		strcpy(target, s);
 		strcpy(target_, s_);
 		k = ft_strlcat(target,s1,i);
-//		j = strlcat(target_,s1_,i);
+		j = strlcat(target_,s1_,i);
 		if (k != j)
 			return (0);
 		i++;
 	}
 	return (1);
 }
-*/
+
 int test_atoi(void)
 {
 	char str[15][15] = 
@@ -278,7 +278,7 @@ int test_atoi(void)
 	}
 	return (1);
 }
-
+*/
 int test_memset(void)
 {
 	char *str=strdup("C M B   D T C");
@@ -431,7 +431,7 @@ int main (void)
 {
 	printf("\nFONCTION DE LA PREMIERE PAGE\n\n");
 
-//	printf("test ft_memset\t= %d\n", test_memset());
+	printf("test ft_memset\t= %d\n", test_memset());
 	printf("test ft_bzero\t= %d\n", test_bzero());
 	printf("test ft_memcpy\t= %d\n", test_memcpy());
 	printf("test ft_memccpy\t= %d\n", test_memccpy());
@@ -445,11 +445,11 @@ int main (void)
 	printf("test ft_strncpy\t= %d\n", test_strncpy());
 	printf("test ft_strcat\t= %d\n", test_strcat());
 	printf("test ft_strncat\t= %d\n", test_strncat());
-//	printf("test ft_strlcat\t= %d\n", test_strlcat());
+	printf("test ft_strlcat\t= %d\n", test_strlcat());
 	printf("test ft_strchr\t= %d\n", test_strchr());
 	printf("test ft_strrchr\t= %d\n", test_strrchr());
 	printf("test ft_strstr\t= %d\n", test_strstr());
-//	printf("test ft_strnstr\t= %d\n", test_strnstr());
+	printf("test ft_strnstr\t= %d\n", test_strnstr());
 	printf("test ft_strcmp\t= %d\n", test_strcmp());
 	printf("test ft_strncmp\t= %d\n", test_strncmp());
 	printf(" ---\n");

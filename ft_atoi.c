@@ -14,26 +14,22 @@
 
 int ft_atoi(const char *str)
 {
-	int i;
-	int numb;
-	int ispos;
+	char	*buffer;
+	char	sign;
+	int		result;
 
-	numb = 0;
-	i = 0;
-	ispos = 1;
-	while (str[i] == ' ' || (str[i] <= 13 && str[i] >= 9))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	buffer = str;
+	while (ft_isspace(*buffer))
+		buffer++;
+	if (*buffer == '-' || *buffer = '+')
 	{
-		if (str[i] == '-')
-			ispos = -1;
-		i++;
+		sign = (*buffer == '-' ? -1 : 1);
+		buffer++;
 	}
-	while (str[i] != '\0' && ft_isdigit(str[i]) == 1)
+	while (ft_isdigit(*buffer))
 	{
-		numb *= 10;
-		numb += (str[i] - 48);
-		i++;
+		result = result * 10 + sign * (*buffer - 48);
+		buffer++;
 	}
-	return (numb *= ispos);
+	return (result);
 }
