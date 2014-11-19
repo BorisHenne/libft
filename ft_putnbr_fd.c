@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:29:18 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/09 01:14:58 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/19 19:25:21 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void ft_putnbr_fd(int n, int fd)
 {
 	if (n > 10)
 	{
-		ft_putnbr_fd(n / 10);
-		ft_putnbr_fd(n % 10);
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
 	}
 	else
 		ft_putchar_fd((n + 48), fd);

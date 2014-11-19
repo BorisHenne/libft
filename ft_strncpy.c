@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:27:43 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/09 02:12:01 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/19 22:30:09 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 char *ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n && src[i] != '\0')
+	while (n-- && src && dest)
 	{
-		dest[i] = src[i];
-		i++;
+		*dest = *src;
+		dest++;
+		src++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }

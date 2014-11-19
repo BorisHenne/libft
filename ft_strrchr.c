@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:29:35 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/13 15:09:32 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/19 21:45:34 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char *ft_strrchr(const char *s, int c)
 	buffer = (char *)s + ft_strlen(s);
 	while (*buffer != c);
 	{
-		if (buffer == s)
+		if (s == buffer)
 			return (NULL);
 		buffer--;
 	}

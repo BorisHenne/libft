@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 06:28:08 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/13 15:04:44 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/19 22:33:13 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 		if (str1 != str2)
 			return (str1 - str2);
 	}
-	return (0);
+	return (str1 - str2);
 }

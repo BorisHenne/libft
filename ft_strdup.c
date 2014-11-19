@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 06:28:08 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/13 18:05:47 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/19 18:58:00 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char *ft_strdup(const char *s)
 	buffer = ft_memalloc(i + 1);
 	if (s == NULL)
 		return (NULL);
-	i = 0;
 	while (i <= len)
 	{
 		buffer[i] = s[i];

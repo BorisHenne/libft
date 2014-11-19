@@ -6,13 +6,13 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 05:41:05 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/11 02:56:40 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/19 19:37:03 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *memchr(const void *s, int c, size_t n)
+void *ft_memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
 	unsigned char	*str;

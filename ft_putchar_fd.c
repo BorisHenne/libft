@@ -6,13 +6,13 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:27:04 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/10 04:25:20 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/19 19:18:26 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
