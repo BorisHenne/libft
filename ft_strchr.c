@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:29:35 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/11 05:36:06 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/21 12:56:45 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 
 char *ft_strchr(const char *s, int c)
 {
-	while (*s != c)
+	char *buffer;
+	char match;
+
+	match = c;
+	buffer = (char *)s;
+	while (*buffer)
 	{
-		if (*s == '\0')
-			return (0);
-		s++;
+		if (*buffer == match)
+			return (buffer);
+		buffer++;
 	}
-	return (char *)s;
+	if (*buffer == match)
+		return (buffer);
+	return (NULL);
 }
