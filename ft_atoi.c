@@ -13,7 +13,7 @@
 
 #include "libft.h"
 #include <stdio.h>
-
+/*
 int ft_min_max(const char *s, int ret, int pos)
 {
 	if (ret >= 214748364 && ((pos == 1 && *s > '0' + 7) ||
@@ -21,7 +21,7 @@ int ft_min_max(const char *s, int ret, int pos)
 		return (-1);
 	return (0);
 }
-
+*/
 int ft_atoi(const char *str)
 {
 	char	*buffer;
@@ -40,19 +40,19 @@ int ft_atoi(const char *str)
 	buffer = (*buffer == '+' || *buffer == '-') ? buffer + 1 : buffer;
 	while (ft_isdigit(*buffer))
 	{
-		if (ft_min_max(str, result, sign) == -1)
-			return (-1);
+//		if (ft_min_max(str, result, sign) == -1)
+//			return (-1);
 		result = result * 10 + *buffer - 48;
 		buffer++;
 	}
 	return (sign * result);
 }
-/*
+
 int	main(void)
 {
-	char hello[] = "–2147483648";
+	char hello[] = "ehrwirhewihrewi2147efefe483648";
 
 	printf("%d", ft_atoi(hello));
 	return (0);
 }
-*/
+

@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:27:56 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/10 05:56:12 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/21 20:23:53 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+int			ft_isblank(int c);
 int			ft_isupper(int c);
 int			ft_islower(int c);
 int			ft_isalpha(int c);

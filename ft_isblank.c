@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/21 18:42:08 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/21 20:22:19 by bhenne           ###   ########.fr       */
+/*   Created: 2014/11/21 20:09:50 by bhenne            #+#    #+#             */
+/*   Updated: 2014/11/21 20:24:34 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strmap(char const *s, char (*f)(char))
+int ft_isblank(int c)
 {
-	char *new;
-	char *str;
-
-	if (s && f)
-	{
-		new = ft_strnew(ft_strlen(s) + 1);
-			if (!new)
-				return (NULL);
-		str = new;
-		while (*s && f && s)
-		{
-			*new = (*f)(*s);
-			new++;
-			s++;
-		}
-		*new = 0;
-		return (str);
-	}
-	return (NULL);
+	if ( c == 32 || c == '\n' || c == '\t') 
+		return (1);
+	return (0);
 }
+
