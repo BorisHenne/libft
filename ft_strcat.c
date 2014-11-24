@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:27:18 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/19 21:59:42 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/23 22:08:11 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char *ft_strcat(char *dest, const char *src)
 {
 	char	*pos1;
 	char	*pos2;
-
 
 	pos1 = (char *)src;
 	pos2 = dest;

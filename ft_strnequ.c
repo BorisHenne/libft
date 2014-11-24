@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isblank.c                                       :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/21 20:09:50 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/23 22:13:08 by bhenne           ###   ########.fr       */
+/*   Created: 2014/11/23 22:29:06 by bhenne            #+#    #+#             */
+/*   Updated: 2014/11/23 22:39:16 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isblank(int c)
+int ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (c == 32 || c == '\n' || c == '\t')
-		return (1);
-	return (0);
+	return (!ft_strncmp(s1, s2, n));
 }

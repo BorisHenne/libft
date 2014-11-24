@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/19 19:21:54 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/22 17:33:43 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/23 22:10:01 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ char *ft_strsub(char const *s, unsigned int start, size_t len)
 	buffer[i] = '\0';
 	return (buffer);
 }
-

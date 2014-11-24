@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/21 18:42:08 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/21 20:22:19 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/23 22:08:31 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char *ft_strmap(char const *s, char (*f)(char))
 	if (s && f)
 	{
 		new = ft_strnew(ft_strlen(s) + 1);
-			if (!new)
-				return (NULL);
+		if (!new)
+			return (NULL);
 		str = new;
 		while (*s && f && s)
 		{

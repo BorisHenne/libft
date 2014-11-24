@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/21 19:10:53 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/21 19:53:05 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/23 22:44:15 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int ft_strequ(char const *s1, char const *s2)
 {
-	if (s1 && s2)
-		return (ft_strcmp((char *)s1, (char *)s2));
-	return (0);
+	return (!ft_strcmp(s1, s2));
 }

@@ -6,12 +6,11 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/21 15:47:52 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/21 15:54:20 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/23 22:09:40 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char *ft_strnstr(const char *s1, const char *s2, size_t n)
 {
