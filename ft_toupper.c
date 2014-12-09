@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 02:45:07 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/21 13:03:44 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/12/09 03:09:31 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_toupper(int c)
 {
-	if (ft_islower((unsigned char)c))
+	if (ft_islower(c))
 		return (c -= 32);
 	else
 		return (c);

@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 04:51:31 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/13 15:05:49 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/12/09 03:26:12 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,26 @@
 
 void *ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *buffer;
+	char		tmp[len];
+	size_t		i;
+	char		*dst_char;
+	const char	*src_char;
 
-	buffer = ft_memalloc(len);
-	if (buffer == NULL)
-		return (NULL);
-	ft_memcpy(buffer, src, len);
-	ft_memcpy(dst, buffer, len);
-	free(buffer);
-	return (dst);
+	i = 0;
+	dst_char = dst;
+	src_char = src;
+	if (!src)
+		return (dst);
+	while (i < len)
+	{
+		tmp[i] = src_char[i];
+		i++;
+	}
+	i = 0;
+	while (i < len)
+	{
+		dst_char[i] = tmp[i];
+		i++;
+	}
+	return (dst_char);
 }

@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/23 22:29:06 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/23 22:39:16 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/12/09 03:15:07 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int ft_strnequ(char const *s1, char const *s2, size_t n)
 {
+	if (!s1 || !s2)
+		return (0);
 	return (!ft_strncmp(s1, s2, n));
 }

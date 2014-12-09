@@ -6,19 +6,11 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:30:13 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/24 03:02:54 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/12/08 21:24:51 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int ft_min_max(const char *s, int result, int sign)
-{
-	if (result >= 214748364 && ((sign == 1 && *s > '0' + 7) ||
-		(sign == -1 && *s > '0' + 8)))
-		return (-1);
-	return (0);
-}
 
 int ft_atoi(const char *str)
 {
@@ -35,8 +27,6 @@ int ft_atoi(const char *str)
 		buffer++;
 	while (ft_isdigit(*buffer))
 	{
-		if (ft_min_max(str, result, sign) == -1)
-			return (-1);
 		result *= 10;
 		result += *buffer - 48;
 		buffer++;

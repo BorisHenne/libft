@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/24 00:55:51 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/24 03:04:15 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/27 03:07:01 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int		ft_match_previous(char const *s, char c, int i)
 {
-	if ((s[i] == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c))
+	if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c))
 		return (1);
 	else
 		return (0);
 }
 
-int		ft_size_str(char const *s, char c)
+int		ft_sizestr(char const *s, char c)
 {
 	int i;
 
@@ -30,26 +30,26 @@ int		ft_size_str(char const *s, char c)
 	return (i);
 }
 
-int		ft_size_tab(char const *s, char c)
+int		ft_sizetab(char const *s, char c)
 {
-	int i;
-	int size;
+	int		i;
+	int		len;
 
 	i = 0;
-	size = 0;
+	len = 0;
 	while (s[i])
 	{
 		if (ft_match_previous(s, c, i))
-			size++;
+			len++;
 		i++;
 	}
-	return (size + 1);
+	return (len + 1);
 }
 
-char	**ft_create_tab(char **tab, char const *s, char c)
+char	**ft_createtab(char **tab, char const *s, char c)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -57,9 +57,11 @@ char	**ft_create_tab(char **tab, char const *s, char c)
 	{
 		if (ft_match_previous(s, c, i))
 		{
-			tab[j] = malloc(sizeof(*tab) * ft_size_str((s + i), c));
-			if (tab[j] != NULL)
-				ft_memcpy(tab[j], (s + i), (size_t)ft_size_str((s + i), c));
+			tab[j] = malloc(sizeof(*tab) * ft_sizestr(s + i, c));
+			{
+				if (tab[j] != NULL)
+					ft_memcpy(tab[j], s + i, (size_t)ft_sizestr(s + i, c));
+			}
 			j++;
 		}
 		i++;
@@ -71,7 +73,7 @@ char	**ft_create_tab(char **tab, char const *s, char c)
 char	**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
-	int		size;
+	int		len;
 
 	tab = NULL;
 	if (s == NULL || c == 0)
@@ -85,9 +87,9 @@ char	**ft_strsplit(char const *s, char c)
 		}
 		return (tab);
 	}
-	size = ft_size_tab(s, c);
-	tab = malloc(sizeof(tab) * size);
+	len = ft_sizetab(s, c);
+	tab = malloc(sizeof(tab) * len);
 	if (tab != NULL)
-		tab = ft_create_tab(tab, s, c);
+		tab = ft_createtab(tab, s, c);
 	return (tab);
 }

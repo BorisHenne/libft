@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 03:40:23 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/11 03:13:01 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/27 02:20:27 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t		i;
 	char		*dst_cast;
 	const char	*src_cast;
 
-	i = 0;
 	dst_cast = dst;
 	src_cast = src;
-	while (i < n)
-	{
-		dst_cast[i] = src_cast[i];
-		i++;
-	}
-	return (dst_cast);
+	while (n--)
+		*dst_cast++ = *src_cast++;
+	return (dst);
 }

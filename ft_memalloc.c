@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 05:06:02 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/21 11:25:49 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/12/09 03:25:49 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void *ft_memalloc(size_t size)
 {
-	void *var;
+	char *var;
 
-	var = malloc(sizeof(void *) * size);
-	if (var == NULL)
+	if (size < 1)
+		return (NULL);
+	var = malloc(sizeof(char) * size);
+	if (!var)
 		return (NULL);
 	ft_bzero(var, size);
-	return (var);
+	return ((void *)var);
 }

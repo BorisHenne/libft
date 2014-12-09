@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:25:20 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/09 01:15:56 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/26 22:05:35 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void ft_putendl(char const *s)
 {
-	char	*buffer;
-
-	buffer = (char *)s;
-	buffer[ft_strlen(buffer)] += '\n';
-	ft_putstr(buffer);
+	ft_putstr(s);
+	ft_putchar('\n');
 }

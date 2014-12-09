@@ -6,7 +6,7 @@
 /*   By: bhenne <bhenne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/21 20:06:31 by bhenne            #+#    #+#             */
-/*   Updated: 2014/11/23 22:10:39 by bhenne           ###   ########.fr       */
+/*   Updated: 2014/11/26 22:21:28 by bhenne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,22 @@ char	*ft_strtrim(const char *s)
 
 	i = 0;
 	j = 0;
-	nbblank = ft_nbblank((char *)s);
-	buffer = (char *)malloc(sizeof(*buffer) * (nbblank + 1));
-	if (!buffer)
-		return (NULL);
-	while (ft_isblank(s[i]))
-		i++;
-	while (j < nbblank)
+	if (s)
 	{
-		buffer[j] = s[i];
-		j++;
-		i++;
+		nbblank = ft_nbblank((char *)s);
+		buffer = (char *)malloc(sizeof(*buffer) * (nbblank + 1));
+		if (!buffer)
+			return (NULL);
+		while (ft_isblank(s[i]))
+			i++;
+		while (j < nbblank)
+		{
+			buffer[j] = s[i];
+			j++;
+			i++;
+		}
+		buffer[j] = '\0';
+		return (buffer);
 	}
-	buffer[j] = '\0';
-	return (buffer);
+	return (NULL);
 }
